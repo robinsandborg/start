@@ -1,0 +1,27 @@
+/* For CSS-wizardry-grids.. */
+
+
+
+/**
+ * Define your breakpoints. The first value is the prefix that shall be used for
+ * your classes (e.g. `.palm--one-half`), the second value is the media query
+ * that the breakpoint fires at.
+ */
+$breakpoints: (
+    'palm' '(max-width: 600px)',
+    'lap' '(min-width: 601px) and (max-width: 1023px)',
+    'portable' '(max-width: 1023px)',
+    'desk' '(min-width: 1024px)'
+)!default;
+
+
+
+
+
+
+/**
+ * Framework variables. We don’t need to edit these, they’re just handy
+ * variables sourced from other settings.
+ */
+$base--spacing-unit:    $base--line-height;
+$half-spacing-unit: $base--spacing-unit/2;

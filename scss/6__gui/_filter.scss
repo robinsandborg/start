@@ -1,0 +1,58 @@
+.filter{
+	background: #497c9e;
+	background: linear-gradient(to bottom, #61A2CD 0%,#497c9e 100%);
+	position: relative;
+	text-align: left;
+	color: $white;
+	margin: 0;
+	padding: 1em 0 0;
+	z-index: 12;
+	//margin-bottom: 3em;
+	width: 100%;
+	&:after{
+		content: "";
+		width: 0;
+		height: 0;
+		border-left: 15px solid transparent;
+		border-right: 15px solid transparent;
+		border-top: 15px solid #497c9e;
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -15px;
+	}
+	.no-js &{
+		display: none;
+	}
+
+}
+
+.filter--left{
+	float: left;
+	width: 200px;
+	height: 100%;
+	&:after{
+		display: none;
+	}
+}
+
+.filter__date{
+	font-size: 0.9em;
+	color: #fff;
+	white-space: nowrap;
+	&:focus{
+		outline: none;
+		color: darken(#fff, 10%);
+	}
+}
+
+
+
+
+.fail_element{
+	opacity: 0;
+}
+
+.fail .fail_element{
+	opacity: 1;
+}
