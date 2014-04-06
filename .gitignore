@@ -5,3 +5,4 @@
 .DS_Store
 bower_components/
 .codekit-cache/
+/.start.sublime-workspace
