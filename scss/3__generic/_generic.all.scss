@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #GENERIC
+\*------------------------------------*/
+/**
+ * Pull in all our generic styles, e.g. resets.
+ */
+
+@import "../../bower_components/inuit-normalize/generic.normalize.scss";
+
+@import "../../bower_components/inuit-reset/generic.reset.scss";
+
+@import "../../bower_components/inuit-box-sizing/generic.box-sizing.scss";
+
+@import "../../bower_components/inuit-shared/generic.shared.scss";
+
+@import "../../bower_components/inuit-clearfix/generic.clearfix.scss";

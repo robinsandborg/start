@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+/**
+ * Pull in all the base files we want.
+ */
+
+@import "../../bower_components/inuit-page/base.page.scss";
+
+@import "../../bower_components/inuit-paragraphs/base.paragraphs.scss";
+
+@import "../../bower_components/inuit-headings/base.headings.scss";
+
+@import "../../bower_components/inuit-lists/base.lists.scss";
+
+@import "../../bower_components/inuit-images/base.images.scss";
+
+@import "base.overrides.scss";

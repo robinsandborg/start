@@ -18,14 +18,25 @@
 
 
 /*------------------------------------*\
-    #SETUP
+    #SETTINGS
 \*------------------------------------*/
 /**
- * Settings, variables and tools.
+ * Sass vars, etc.
  */
-@import "1__settings/all",
-        "2__tools/functions",
-        "2__tools/mixins";
+@import "1__settings/_settings.all.scss";
+
+
+
+/*------------------------------------*\
+    #TOOLS
+\*------------------------------------*/
+/**
+ * Functions and mixins.
+ */
+
+@import "2__tools/_tools.all.scss";
+
+
 
 
 
@@ -36,9 +47,9 @@
 \*------------------------------------*/
 /**
  * These are far reaching styles that affect and underpin every element on the
- * page, e.g. `* {}`.
+ * page, e.g. `* {}`, resets etc.
  */
-@import "3__generic/all";
+@import "3__generic/_generic.all.scss";
 
 
 
@@ -51,7 +62,7 @@
  * These are base HTML elements, things with no classes on them, e.g. `h1 {}`,
  * `blockquote {}`.
  */
-@import "4__base/all";
+@import "4__base/_base.all.scss";
 
 
 
@@ -64,20 +75,18 @@
  * These are design-free objects, abstractions and design patterns. These create
  * constructs that you lay your designs over.
  */
-@import "5__objects/all";
-
-
+@import "5__objects/_objects.all.scss";
 
 
 
 /*------------------------------------*\
-    #GUI
+    #GUI/components
 \*------------------------------------*/
 /**
  * These are your components and modules; things like buttons, accordions,
- * carousels, etc.
+ * carousels, etc. This is where you'll place most of your elements
  */
-@import "6__gui/all";
+@import "6__gui/_gui.all.scss";
 
 
 
@@ -90,4 +99,4 @@
  * These are helper classes and overrides that should take precedence over all
  * other styles, e.g. `.float--left {}`.
  */
-@import "7__trumps/all";
+@import "7__trumps/_trumps.all.scss";
