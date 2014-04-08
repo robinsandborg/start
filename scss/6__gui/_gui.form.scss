@@ -1,0 +1,17 @@
+
+.form{
+	margin-bottom: $inuit-base-spacing-unit;
+}
+
+.form__label{
+	font-weight: bold;
+	display: block;
+}
+
+.form__label--inline{
+	display: inline;
+}
+
+.form__input{
+	width: 100%;
+}

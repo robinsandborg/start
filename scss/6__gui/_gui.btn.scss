@@ -1,0 +1,22 @@
+
+.btn{
+
+}
+
+.btn--primary{
+	color: $white;
+	background: $primary-color;
+	&:hover{
+		color: $white;
+		background: darken($primary-color, 10%);
+	}
+}
+
+.btn--secondary{
+	color: $white;
+	background: $secondary-color;
+	&:hover{
+		color: $white;
+		background: darken($secondary-color, 10%);
+	}
+}

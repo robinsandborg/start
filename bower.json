@@ -40,7 +40,6 @@
     "inuit-bare-list": "~0.1.2",
     "inuit-ui-list": "~0.1.2",
     "inuit-block-list": "~0.1.2",
-    "beautons": "https://raw.githubusercontent.com/csswizardry/beautons/master/beautons.css",
     "jQuery": "~2.1.0",
     "sprockets-modernizr": "2.6.2"
   }
