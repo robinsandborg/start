@@ -1,13 +1,13 @@
 {
   "name": "start-template",
-  "version": "0.0.0",
-  "homepage": "https://github.com/mhauken/start",
+  "version": "0.1.0",
   "authors": [
     "Marius Hauken <hauken@netliferesearch.com>"
   ],
   "description": "A start template for new projects",
   "main": "index.html",
   "license": "MIT",
+  "homepage": "https://github.com/mhauken/start",
   "private": true,
   "ignore": [
     "**/.*",
@@ -17,30 +17,19 @@
     "tests"
   ],
   "dependencies": {
-    "inuit-defaults": null,
-    "inuit-functions": null,
-    "inuit-mixins": null,
-    "inuit-normalize": null,
-    "inuit-reset": null,
-    "inuit-box-sizing": null,
-    "inuit-shared": null,
-    "inuit-clearfix": null,
-    "inuit-page": null,
-    "inuit-paragraphs": null,
-    "inuit-headings": null,
-    "inuit-lists": null,
-    "inuit-images": null,
-    "inuit-layout": null,
-    "inuit-media": null,
-    "inuit-flag": null,
-    "inuit-box": null,
-    "inuit-tabs": null,
-    "inuit-widths": null,
-    "inuit-spacing": null,
-    "inuit-bare-list": null,
-    "inuit-ui-list": null,
-    "inuit-block-list": null,
-    "jQuery": null,
-    "sprockets-modernizr": null
+    "inuit-box": "~0.4.3",
+    "inuit-buttons": "~0.4.1",
+    "inuit-headings": "~0.2.2",
+    "inuit-images": "~0.3.2",
+    "inuit-layout": "~0.3.2",
+    "inuit-media": "~0.4.1",
+    "inuit-responsive-settings": "~0.1.3",
+    "inuit-shared": "~0.1.3",
+    "inuit-responsive-tools": "~0.1.3",
+    "inuit-spacing-responsive": "~0.0.4",
+    "inuit-spacing": "~0.6.2",
+    "inuit-starter-kit": "~0.2.8",
+    "inuit-widths-responsive": "~0.1.3",
+    "inuit-widths": "~0.3.2"
   }
 }

@@ -1,102 +1,60 @@
-@charset "UTF-8";
-/*------------------------------------*\
-    STYLE.SCSS
-\*------------------------------------*/
-/**
- * Here we start to pull everything together into one big stylesheet.
- *
- * SETUP............Settings, tools, mixins, etc.
- * GENERIC..........normalize.css, reset, shared styles, etc.
- * BASE.............Basic HTML elements.
- * OBJECTS..........Objects, abstractions, design patterns.
- * GUI..............Components and modules.
- * TRUMPS...........Helpers, overrides, ‘trump-cards’.
- */
+/*
+//	SETTINGS
+//	Global variables, site-wide settings, config switches, etc.
+*/
+@import "../bower_components/inuit-defaults/settings.defaults";
+@import "../bower_components/inuit-responsive-settings/_settings.responsive.scss";
+@import "settings.colors.scss";
+@import "settings.vars.scss";
+
+/*
+// TOOLS
+// Site-wide mixins and functions.
+*/
+@import "../bower_components/inuit-functions/tools.functions";
+@import "../bower_components/inuit-mixins/tools.mixins";
+@import "../bower_components/inuit-responsive-tools/tools.responsive";
+@import "tools.mixins.scss";
+
+/*
+// GENERIC
+// Low-specificity, far-reaching rulesets (e.g. resets).
+*/
+@import "../bower_components/inuit-normalize/generic.normalize";
+@import "../bower_components/inuit-box-sizing/generic.box-sizing";
+@import "../bower_components/inuit-shared/generic.shared";
 
 
+/*
+// BASE
+// Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+*/
+@import "../bower_components/inuit-page/base.page";
+@import "../bower_components/inuit-headings/base.headings";
+@import "../bower_components/inuit-images/_base.images";
 
+/*
+// OBJECTS
+// Objects, abstractions, and design patterns (e.g. .media {}).
+*/
+@import "../bower_components/inuit-box/_objects.box";
+@import "../bower_components/inuit-buttons/_objects.buttons";
+@import "../bower_components/inuit-layout/_objects.layout";
+@import "../bower_components/inuit-media/objects.media";
 
+/*
+// COMPONENTS
+// Discrete, complete chunks of UI (e.g. .carousel {}).
+// This is the one layer that inuitcss doesn’t get involved with.
+*/
 
-/*------------------------------------*\
-    #SETTINGS
-\*------------------------------------*/
-/**
- * Sass vars, etc.
- */
-@import "1__settings/_settings.all.scss";
-
-
-
-/*------------------------------------*\
-    #TOOLS
-\*------------------------------------*/
-/**
- * Functions and mixins.
- */
-
-@import "2__tools/_tools.all.scss";
-
-
-
-
-
-
-
-/*------------------------------------*\
-    #GENERIC
-\*------------------------------------*/
-/**
- * These are far reaching styles that affect and underpin every element on the
- * page, e.g. `* {}`, resets etc.
- */
-@import "3__generic/_generic.all.scss";
-
-
-
-
-
-/*------------------------------------*\
-    #BASE
-\*------------------------------------*/
-/**
- * These are base HTML elements, things with no classes on them, e.g. `h1 {}`,
- * `blockquote {}`.
- */
-@import "4__base/_base.all.scss";
-
-
-
-
-
-/*------------------------------------*\
-    #OBJECTS
-\*------------------------------------*/
-/**
- * These are design-free objects, abstractions and design patterns. These create
- * constructs that you lay your designs over.
- */
-@import "5__objects/_objects.all.scss";
-
-
-
-/*------------------------------------*\
-    #GUI/components
-\*------------------------------------*/
-/**
- * These are your components and modules; things like buttons, accordions,
- * carousels, etc. This is where you'll place most of your elements
- */
-@import "6__gui/_gui.all.scss";
-
-
-
-
-
-/*------------------------------------*\
-    #TRUMPS
-\*------------------------------------*/
-/**
- * These are helper classes and overrides that should take precedence over all
- * other styles, e.g. `.float--left {}`.
- */
-@import "7__trumps/_trumps.all.scss";
+/*
+// TRUMPS
+// High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
+*/
+@import "../bower_components/inuit-clearfix/_trumps.clearfix";
+@import "../bower_components/inuit-widths/trumps.widths";
+@import "../bower_components/inuit-widths-responsive/_trumps.widths-responsive";
+@import "../bower_components/inuit-spacing/trumps.spacing";
+@import "../bower_components/inuit-spacing-responsive/_trumps.spacing-responsive";
+@import "trumps.shame.scss";
