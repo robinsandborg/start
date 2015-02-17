@@ -3,4 +3,7 @@
 bower_components/
 .codekit-cache/
 /.start.sublime-workspace
-scss/style.css.map
+*.map
+/css/style.css.map
+*.css.map
+*css.map
