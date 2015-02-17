@@ -741,7 +741,7 @@ li > ol {
   /* [6] */
   padding: 12px 24px;
   /* [7] */
-  background-color: #333; }
+  background-color: #dfdfdf; }
   .btn, .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
     /* [4] */
