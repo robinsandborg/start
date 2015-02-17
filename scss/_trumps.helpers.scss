@@ -1,0 +1,89 @@
+/**
+ * Helper-class for removing item visually, but not for screenreaders
+ */
+.accessibility{
+    border:0!important;
+    clip:rect(0 0 0 0)!important;
+    height:1px!important;
+    margin:-1px!important;
+    overflow:hidden!important;
+    padding:0!important;
+    position: absolute!important;
+    width:1px!important;
+}
+
+/**
+ * Floating left. Remember to add clearfix class on parent item: .clearfix
+ */
+.fl{
+    float: left;
+}
+
+/**
+ * Floating right. Remember to add clearfix class on parent item: .clearfix
+ */
+.fr{
+    float: right;
+}
+
+/**
+ * If we don't want to wrap the text over multiple lines.
+ */
+.no-wrap{
+    white-space: nowrap;
+}
+
+/**
+ * Text align helper classes.
+ */
+.tr{
+    text-align: right;
+}
+
+.tc{
+    text-align: center;
+}
+
+.tl{
+    text-align: left;
+}
+
+.ma{
+    margin: auto !important;
+}
+
+/**
+ * For removing content..
+ */
+.hide{
+    display: none;
+}
+
+.visible{
+    display: inherit !important;
+}
+
+/**
+ * For gray text. WCAG on white background. Only on background over 18px size.
+ */
+.color-gray,
+.color-grey{
+    color: #767676;
+}
+
+/**
+ * Some places we want a bit smaller text:
+ */
+.font--small{
+    font-size: $font-size-small;
+    & p{
+       margin-bottom: $inuit-base-spacing-unit/4;
+    }
+}
+
+/**
+ * For hiding tabpanels with javascript:
+ */
+[role="tabpanel"][aria-hidden="true"] {
+    display: none;
+}

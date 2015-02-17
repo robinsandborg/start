@@ -1,11 +1,50 @@
 /*------------------------------------*\
     #VARS
+    Our own variables to use throughout the project.
 \*------------------------------------*/
+
+$border-radius: 0px;
+$font-family-heading: Georgia, serif;
+$main-font-family:  Helvetica, Arial, sans-serif;
+$font-size-primary: 16px;
+$font-size-small: 14px;
+
 /**
- * Generic, non-specific variables.
+ * RESPONSIVE BREAKPOINTS
+ * This is where we define all our breakpoints.
+ *
+ * Usage:
+ *  @include media-query(palm) {
+ *
+ *  }
  */
 
-$brand--round: 4px;
-$sprite: url("/img/sprite.svg");
+/**
+ * Modifying inuits defaults for helper-classes and widths.
+ */
+$breakpoints: (
+    "palm"               "screen and (max-width: 639px)",
+    "lap"                "screen and (min-width: 640px) and (max-width: 1023px)",
+    "lap-and-up"         "screen and (min-width: 640px)",
+    "portable"           "screen and (max-width: 849px)",
+    "portable-and-up"    "screen and (min-width: 850px)",
+    "desk"			"screen and (min-width: 1024px)",
+    "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+);
 
 
+/**
+ * COLORS
+ */
+
+$bg-color: #f2f2f2;
+$text-color: #333;
+$link-color: blue;
+
+/**
+ * ALIASES
+ * where we want to remap common variables without inuit-prefix:
+ */
+
+$spacing-unit: $inuit-base-spacing-unit;
+$spacing: $inuit-base-spacing-unit;

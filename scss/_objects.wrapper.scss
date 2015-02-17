@@ -1,0 +1,8 @@
+.wrapper{
+	margin: auto;
+	max-width: 1280px;
+	padding: 0 $spacing-unit/2;
+	@include media-query(palm) {
+		padding: 0 $spacing-unit/4;
+	}
+}

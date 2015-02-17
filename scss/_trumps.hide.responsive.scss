@@ -1,0 +1,16 @@
+/*------------------------------------*\
+    #HIDE-RESPONSIVE
+\*------------------------------------*/
+
+/**
+ * Responsive hide classes based on your responsive settings.
+ */
+@each $breakpoint in $breakpoints {
+
+    $alias:     nth($breakpoint, 1);
+
+    @include media-query($alias) {
+        .#{$inuit-widths-namespace}#{$alias}-hide     { display: none !important; }
+    }
+
+}

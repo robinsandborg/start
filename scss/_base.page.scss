@@ -1,0 +1,30 @@
+/*------------------------------------*\
+    #PAGE
+    Basic page-level stylings
+\*------------------------------------*/
+
+html {
+	font-family: $main-font-family;
+}
+
+a {
+	color: $link-color;
+	&:hover, &:focus{
+		color: $text-color;
+	}
+}
+
+small{
+	font-size: $font-size-small;
+}
+
+
+/**
+ * Basic paragraph styling
+ * [1] We don't want paragraphs to be too long
+ */
+
+p {
+	max-width: 610px; /* [1] */
+	max-width: 38rem; /* [1] */
+}

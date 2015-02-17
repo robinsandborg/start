@@ -1,60 +1,148 @@
-/*
-//	SETTINGS
-//	Global variables, site-wide settings, config switches, etc.
-*/
+/*------------------------------------*\
+    This SCSS is based upon inuit.css (https://github.com/inuitcss/getting-started).
+    We're importing default blocks from inuit (all the files that's inside the bower_components folder).
+    These files we can not change. However these are heavily based on SCSS variables, so we can change these by supplying the specific SCSS-variable before we import each SCSS-file. By default most of inuit is turned off, so we need to turn on each class via variables before importing.
+
+    We have structured the CSS in a specific way to avoid specificity-problems. Basically we are first targetting elements without class-names etc, then we are applying abstract patterns before we apply most of our own styles and in the end helper-classes and layouts that should overwrite everything else..
+\*------------------------------------*/
+
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Defaults.............Globally-available variables and config from inui.
+ * Responsive...........Breakpoint-variables from inuit.
+ * Vars.................Our own variables
+ *
+ * TOOLS
+ * Functions............Maths helpers to use throuhout the project
+ * Mixins...............Font size mixins
+ * Responsive...........Media query mixin
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Reset................Extra removal of margins
+ * Box-sizing...........Better default `box-sizing`.
+ * Shared...............Similar margins troughout the project
+ *
+ * BASE
+ * Page.................High-, page-level styling
+ * Paragraphs...........Class for ingress on paragraphs
+ * Images...............Base image styling
+ * Lists................Base list styling
+ * Page.................Our own additions to to High-, page-level styling
+ * Headings.............H1–H6 styles.
+ *
+ * OBJECTS
+ * Box..................Simple object to make boxed-off content.
+ * Flag.................Pattern with image to one side + text to the other
+ * Buttons..............Basic button-styling
+ * List-inline..........Simply displays a list as one horizontal row.
+ * List-ui..............List that creates blocky list items with lines between.
+ * Layout...............inuitcss’ answer to the traditional grid system.
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ *
+ *
+ * TRUMPS
+ * Clearfix.............Simple clearfix helper
+ * Widths...............A series of helper classes for dealing with widths
+ * Widths responsive....A responsive extension to Widths
+ * Spacing..............Spacing helper classes
+ * Spacing responsive...A responsive extension to Spacing
+ * Hide responsive......Helper classes for hiding elements.
+ * Helpers..............Our own additional helper-classes
+ */
+
+/*------------------------------------*\
+    #SETTINGS
+    Global variables, site-wide settings, config switches, etc.
+    These are just for SCSS – nothing here gets compiled to CSS directly
+\*------------------------------------*/
+$inuit-base-background-color: #f2f2f2;
 @import "../bower_components/inuit-defaults/settings.defaults";
 @import "../bower_components/inuit-responsive-settings/_settings.responsive.scss";
-@import "settings.colors.scss";
 @import "settings.vars.scss";
 
-/*
-// TOOLS
-// Site-wide mixins and functions.
-*/
+/*------------------------------------*\
+    #TOOLS
+    Site-wide mixins and functions.
+    These are just for SCSS - nothing here gets directly compiled to CSS.
+\*------------------------------------*/
 @import "../bower_components/inuit-functions/tools.functions";
 @import "../bower_components/inuit-mixins/tools.mixins";
 @import "../bower_components/inuit-responsive-tools/tools.responsive";
-@import "tools.mixins.scss";
 
-/*
-// GENERIC
-// Low-specificity, far-reaching rulesets (e.g. resets).
-*/
+/*------------------------------------*\
+    #GENERIC
+    Low-specificity, far-reaching rulesets (e.g. resets).
+    Here we have our basic resets
+\*------------------------------------*/
 @import "../bower_components/inuit-normalize/generic.normalize";
+@import "../bower_components/inuit-reset/generic.reset.scss";
 @import "../bower_components/inuit-box-sizing/generic.box-sizing";
 @import "../bower_components/inuit-shared/generic.shared";
 
 
-/*
-// BASE
-// Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
-*/
+/*------------------------------------*\
+    #BASE
+    Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+    Here we style all our HTML-elements with the basic styling we want.
+\*------------------------------------*/
 @import "../bower_components/inuit-page/base.page";
-@import "../bower_components/inuit-headings/base.headings";
-@import "../bower_components/inuit-images/_base.images";
+@import "../bower_components/inuit-paragraphs/base.paragraphs.scss";
+@import "../bower_components/inuit-images/base.images.scss";
+@import "../bower_components/inuit-lists/base.lists.scss";
 
-/*
-// OBJECTS
-// Objects, abstractions, and design patterns (e.g. .media {}).
-*/
-@import "../bower_components/inuit-box/_objects.box";
-@import "../bower_components/inuit-buttons/_objects.buttons";
-@import "../bower_components/inuit-layout/_objects.layout";
-@import "../bower_components/inuit-media/objects.media";
+/*------------------------------------*\
+    #OBJECTS
+    Objects, abstractions, and design patterns (e.g. .media {}).
+    Here we import abstractions without styling etc.
+    Missing some abstractions? Read trough the SCSS-files imported to turn
+    on variables or get new ones from here:
+    https://github.com/inuitcss?query=objects.
+\*------------------------------------*/
+@import "../bower_components/inuit-box/objects.box.scss";
+@import "../bower_components/inuit-flag/objects.flag.scss";
+$inuit-btn-background: #333;
+$inuit-btn-color: #444;
+$inuit-btn-border-width: 0;
+$inuit-enable-btn--small: true;
+@import "../bower_components/inuit-buttons/objects.buttons.scss";
+@import "../bower_components/inuit-list-inline/objects.list-inline";
+@import "../bower_components/inuit-list-ui/objects.list-ui";
+@import "../bower_components/inuit-layout/objects.layout.scss";
+@import "objects.wrapper.scss";
 
-/*
-// COMPONENTS
-// Discrete, complete chunks of UI (e.g. .carousel {}).
-// This is the one layer that inuitcss doesn’t get involved with.
-*/
+/*------------------------------------*\
+    #COMPONENTS
+    Discrete, complete chunks of UI (e.g. .carousel {}).
+    This is the one layer that inuitcss doesn’t get involved with.
+    This is where we add our own components and modifiers to the objects.
+\*------------------------------------*/
 
-/*
-// TRUMPS
-// High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
-*/
-@import "../bower_components/inuit-clearfix/_trumps.clearfix";
-@import "../bower_components/inuit-widths/trumps.widths";
-@import "../bower_components/inuit-widths-responsive/_trumps.widths-responsive";
-@import "../bower_components/inuit-spacing/trumps.spacing";
-@import "../bower_components/inuit-spacing-responsive/_trumps.spacing-responsive";
+
+/*------------------------------------*\
+    #TRUMPS
+    High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {})
+    Helpers and layout-classes
+\*------------------------------------*/
+@import "../bower_components/inuit-clearfix/trumps.clearfix.scss";
+@import "../bower_components/inuit-widths/trumps.widths.scss";
+@import "../bower_components/inuit-widths-responsive/trumps.widths-responsive.scss";
+$inuit-enable-margins: true;
+$inuit-enable-margins--tiny: true;
+$inuit-enable-margins--small: true;
+$inuit-enable-margins--none: true;
+$inuit-enable-paddings: true;
+$inuit-enable-paddings--small: true;
+$inuit-enable-paddings--none: true;
+$inuit-enable-margins--large: true;
+@import "../bower_components/inuit-spacing/trumps.spacing.scss";
+$inuit-enable-responsive-margins--none: true;
+$inuit-enable-responsive-paddings--small: true;
+@import "../bower_components/inuit-spacing-responsive/trumps.spacing-responsive.scss";
+@import "trumps.hide.responsive.scss";
+@import "trumps.helpers.scss";
 @import "trumps.shame.scss";

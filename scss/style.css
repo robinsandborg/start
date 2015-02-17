@@ -1,85 +1,103 @@
 @charset "UTF-8";
-/*
-//	SETTINGS
-//	Global variables, site-wide settings, config switches, etc.
-*/
+/*------------------------------------*\
+    This SCSS is based upon inuit.css (https://github.com/inuitcss/getting-started).
+    We're importing default blocks from inuit (all the files that's inside the bower_components folder).
+    These files we can not change. However these are heavily based on SCSS variables, so we can change these by supplying the specific SCSS-variable before we import each SCSS-file. By default most of inuit is turned off, so we need to turn on each class via variables before importing.
+
+    We have structured the CSS in a specific way to avoid specificity-problems. Basically we are first targetting elements without class-names etc, then we are applying abstract patterns before we apply most of our own styles and in the end helper-classes and layouts that should overwrite everything else..
+\*------------------------------------*/
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Defaults.............Globally-available variables and config from inui.
+ * Responsive...........Breakpoint-variables from inuit.
+ * Vars.................Our own variables
+ *
+ * TOOLS
+ * Functions............Maths helpers to use throuhout the project
+ * Mixins...............Font size mixins
+ * Responsive...........Media query mixin
+ *
+ * GENERIC
+ * Normalize.css........A level playing field.
+ * Reset................Extra removal of margins
+ * Box-sizing...........Better default `box-sizing`.
+ * Shared...............Similar margins troughout the project
+ *
+ * BASE
+ * Page.................High-, page-level styling
+ * Paragraphs...........Class for ingress on paragraphs
+ * Images...............Base image styling
+ * Lists................Base list styling
+ * Page.................Our own additions to to High-, page-level styling
+ * Headings.............H1–H6 styles.
+ *
+ * OBJECTS
+ * Box..................Simple object to make boxed-off content.
+ * Flag.................Pattern with image to one side + text to the other
+ * Buttons..............Basic button-styling
+ * List-inline..........Simply displays a list as one horizontal row.
+ * List-ui..............List that creates blocky list items with lines between.
+ * Layout...............inuitcss’ answer to the traditional grid system.
+ * Wrappers.............Wrapping and constraining elements.
+ *
+ * COMPONENTS
+ *
+ *
+ * TRUMPS
+ * Clearfix.............Simple clearfix helper
+ * Widths...............A series of helper classes for dealing with widths
+ * Widths responsive....A responsive extension to Widths
+ * Spacing..............Spacing helper classes
+ * Spacing responsive...A responsive extension to Spacing
+ * Hide responsive......Helper classes for hiding elements.
+ * Helpers..............Our own additional helper-classes
+ */
+/*------------------------------------*\
+    #SETTINGS
+    Global variables, site-wide settings, config switches, etc.
+    These are just for SCSS – nothing here gets compiled to CSS directly
+\*------------------------------------*/
 /*!
  * inuitcss, by @csswizardry
  *
  * github.com/inuitcss | inuitcss.com
  */
 /*------------------------------------*\
-    #COLOR
-\*------------------------------------*/
-/*------------------------------------*\
     #VARS
+    Our own variables to use throughout the project.
 \*------------------------------------*/
 /**
- * Generic, non-specific variables.
+ * RESPONSIVE BREAKPOINTS
+ * This is where we define all our breakpoints.
+ *
+ * Usage:
+ *  @include media-query(palm) {
+ *
+ *  }
  */
-/*
-// TOOLS
-// Site-wide mixins and functions.
-*/
+/**
+ * Modifying inuits defaults for helper-classes and widths.
+ */
+/**
+ * COLORS
+ */
+/**
+ * ALIASES
+ * where we want to remap common variables without inuit-prefix:
+ */
 /*------------------------------------*\
-    #MIXINS
+    #TOOLS
+    Site-wide mixins and functions.
+    These are just for SCSS - nothing here gets directly compiled to CSS.
 \*------------------------------------*/
-/**
- * Here we can add mixins that's not imported with inuit.
- */
-/*
-Antaliased text
-Use:
-
-    .foo{
-    @include antialiased;
-    }
-
-
-*/
-/**
- * A simple top-to-bottom linear gradient with fallback color of our choice.
- */
-/*
-BREAKPOINTS
-via http://ahrengot.com/web-development/sass-breakpoint-mixin/
-Use:
-    .foo{
-        @include bp(palm) { width: 80%;}
-        @include bp(min-width, 1192px) { background: red;}
-        @include bp-between(0, 1024px) { font-size: 1.3em;}
-    }
-*/
-/*
-KEYFRAME
-Use:
-    @include keyframe(fadeout) {
-        0% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 0;
-        }
-    }
-*/
-/*
-    ANIMATION
-    use:
-        .foo{
-        @include animation(8s, 4s, fadeout)
-        }
- */
-/*
-* @include triangle within a pseudo element and add positioning properties (ie. top, left)
-* $direction: up, down, left, right
-* via http://hackingui.com/front-end/10-best-scss-utilities/
-*/
-/*
-// GENERIC
-// Low-specificity, far-reaching rulesets (e.g. resets).
-*/
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/*------------------------------------*\
+    #GENERIC
+    Low-specificity, far-reaching rulesets (e.g. resets).
+    Here we have our basic resets
+\*------------------------------------*/
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -103,7 +121,8 @@ body {
    ========================================================================== */
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
 article,
@@ -115,6 +134,7 @@ footer,
 header,
 hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -155,7 +175,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background: transparent; }
+  background-color: transparent; }
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -436,6 +456,44 @@ th {
   padding: 0; }
 
 /*------------------------------------*\
+    #RESET
+\*------------------------------------*/
+/**
+ * As well as using normalize.css, it is often advantageous to remove all
+ * margins from certain elements.
+ */
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+figure,
+table, th, td, caption,
+hr {
+  margin: 0;
+  padding: 0; }
+
+/**
+ * Give a help cursor to elements that give extra info on `:hover`.
+ */
+abbr[title],
+dfn[title] {
+  cursor: help; }
+
+/**
+ * Remove underlines from potentially troublesome elements.
+ */
+u,
+ins {
+  text-decoration: none; }
+
+/**
+ * Apply faux underlines to inserted text via `border-bottom`.
+ */
+ins {
+  border-bottom: 1px solid; }
+
+/*------------------------------------*\
     #BOX-SIZING
 \*------------------------------------*/
 /**
@@ -463,6 +521,7 @@ html {
 h1, h2, h3, h4, h5, h6,
 ul, ol, dl,
 blockquote, p, address,
+hr,
 table,
 fieldset, figure,
 pre {
@@ -477,10 +536,11 @@ ul, ol, dd {
   margin-left: 48px;
   margin-left: 3rem; }
 
-/*
-// BASE
-// Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
-*/
+/*------------------------------------*\
+    #BASE
+    Unclassed HTML elements (e.g. a {}, blockquote {}, address {}).
+    Here we style all our HTML-elements with the basic styling we want.
+\*------------------------------------*/
 /*------------------------------------*\
     #PAGE
 \*------------------------------------*/
@@ -503,7 +563,7 @@ html {
   /* [1] */
   line-height: 1.5;
   /* [1] */
-  background-color: #fff;
+  background-color: #f2f2f2;
   color: #333;
   overflow-y: scroll;
   /* [2] */
@@ -519,47 +579,16 @@ html {
   /* [5] */ }
 
 /*------------------------------------*\
-    #HEADINGS
+    #PARAGRAPHS
 \*------------------------------------*/
 /**
- * Headings 1–6, with corresponding Greek-alphabet abstract classes for double-
- * stranded heading hierarchy: csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+ * The `.lede` class is used to make the introductory text (usually a paragraph)
+ * of a document slightly larger: en.wikipedia.org/wiki/Lede_(news)
  */
-h1,
-.alpha {
-  font-size: 36px;
-  font-size: 2.25rem;
+.lede {
+  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.33333; }
-
-h2,
-.beta {
-  font-size: 30px;
-  font-size: 1.875rem;
-  line-height: 1.6; }
-
-h3,
-.gamma {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1; }
-
-h4,
-.delta {
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.2; }
-
-h5,
-.epsilon {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5; }
-
-h6,
-.zeta {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1.71429; }
 
 /*------------------------------------*\
     #IMAGES
@@ -591,10 +620,24 @@ img[height] {
   /* [2] */
   max-width: none; }
 
-/*
-// OBJECTS
-// Objects, abstractions, and design patterns (e.g. .media {}).
-*/
+/*------------------------------------*\
+    #LISTS
+\*------------------------------------*/
+/**
+ * Remove extra vertical spacing when nesting lists.
+ */
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/*------------------------------------*\
+    #OBJECTS
+    Objects, abstractions, and design patterns (e.g. .media {}).
+    Here we import abstractions without styling etc.
+    Missing some abstractions? Read trough the SCSS-files imported to turn
+    on variables or get new ones from here:
+    https://github.com/inuitcss?query=objects.
+\*------------------------------------*/
 /*------------------------------------*\
     #BOX
 \*------------------------------------*/
@@ -609,6 +652,57 @@ img[height] {
   /* [1] */
   padding: 24px; }
   .box > :last-child {
+    margin-bottom: 0; }
+
+/*------------------------------------*\
+    #FLAG
+\*------------------------------------*/
+/**
+ * The flag object is a design pattern similar to the media object, however it
+ * utilises `display: table[-cell];` to give us control over the vertical
+ * alignments of the text and image. csswizardry.com/2013/05/the-flag-object
+ */
+/**
+ * 1. Allows us to control vertical alignments
+ * 2. Force the object to be the full width of its parent. Combined with [1],
+ *    this makes the object behave in a quasi-`display: block;` manner.
+ */
+.flag {
+  display: table;
+  /* [1] */
+  width: 100%;
+  /* [2] */ }
+
+/**
+ * Items within a flag object. There should only ever be one of each.
+ *
+ * 1. Default to aligning content to their middles.
+ */
+.flag__img,
+.flag__body {
+  display: table-cell;
+  vertical-align: middle;
+  /* [1] */ }
+
+/**
+ * Flag images have a space between them and the body of the object.
+ */
+.flag__img {
+  padding-right: 24px; }
+  .flag__img > img {
+    display: block;
+    max-width: none; }
+
+/**
+ * The container for the main content of the flag object.
+ *
+ * 1. Forces the `.flag__body` to take up all remaining space.
+ */
+.flag__body {
+  width: 100%;
+  /* [1] */ }
+  .flag__body,
+  .flag__body > :last-child {
     margin-bottom: 0; }
 
 /*------------------------------------*\
@@ -645,14 +739,13 @@ img[height] {
   /* [5] */
   overflow: visible;
   /* [6] */
-  padding: 11px 23px;
+  padding: 12px 24px;
   /* [7] */
-  background-color: #4a8ec2;
-  border: 1px solid #4a8ec2; }
+  background-color: #333; }
   .btn, .btn:hover, .btn:active, .btn:focus {
     text-decoration: none;
     /* [4] */
-    color: #fff; }
+    color: #444; }
 
 /**
  * Fix a Firefox bug whereby `input type="submit"` gains 2px extra padding.
@@ -660,6 +753,49 @@ img[height] {
 .btn::-moz-focus-inner {
   border: 0;
   padding: 0; }
+
+/**
+ * Small buttons.
+ */
+.btn--small {
+  padding: 6px 12px;
+  /* [7] */ }
+
+/*------------------------------------*\
+    #LIST-INLINE
+\*------------------------------------*/
+/**
+ * The list-inline object simply displays a list of items in one line.
+ */
+.list-inline {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+  .list-inline > li {
+    display: inline-block; }
+
+/*------------------------------------*\
+    #LIST-UI
+\*------------------------------------*/
+/**
+ * The UI list object creates blocky list items with a keyline separator out of
+ * a `ul` or `ol`.
+ */
+.list-ui,
+.list-ui__item,
+.list-ui > li {
+  border: 0 solid #ccc; }
+
+.list-ui {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top-width: 1px; }
+
+.list-ui__item,
+.list-ui > li {
+  padding: 24px;
+  border-bottom-width: 1px; }
 
 /*------------------------------------*\
     #LAYOUT
@@ -696,38 +832,25 @@ img[height] {
   width: 100%;
   /* [4] */ }
 
+.wrapper {
+  margin: auto;
+  max-width: 1280px;
+  padding: 0 12px; }
+  @media screen and (max-width: 639px) {
+    .wrapper {
+      padding: 0 6px; } }
+
 /*------------------------------------*\
-    #MEDIA
+    #COMPONENTS
+    Discrete, complete chunks of UI (e.g. .carousel {}).
+    This is the one layer that inuitcss doesn’t get involved with.
+    This is where we add our own components and modifiers to the objects.
 \*------------------------------------*/
-/**
- * Place any image- and text-like content side-by-side, as per:
- * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
- */
-.media {
-  display: block; }
-
-.media__img {
-  float: left;
-  margin-right: 24px; }
-  .media__img > img {
-    display: block; }
-
-.media__body {
-  overflow: hidden;
-  display: block; }
-  .media__body,
-  .media__body > :last-child {
-    margin-bottom: 0; }
-
-/*
-// COMPONENTS
-// Discrete, complete chunks of UI (e.g. .carousel {}).
-// This is the one layer that inuitcss doesn’t get involved with.
-*/
-/*
-// TRUMPS
-// High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
-*/
+/*------------------------------------*\
+    #TRUMPS
+    High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {})
+    Helpers and layout-classes
+\*------------------------------------*/
 /*------------------------------------*\
     #CLEARFIX
 \*------------------------------------*/
@@ -737,8 +860,7 @@ img[height] {
  * over and over in your markup.
  */
 .clearfix:after,
-.box:after,
-.media:after {
+.box:after {
   content: "";
   display: table;
   clear: both; }
@@ -899,7 +1021,7 @@ img[height] {
 /**
  * Responsive width classes based on your responsive settings.
  */
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 639px) {
   /**
    * Whole.
    */
@@ -1040,7 +1162,7 @@ img[height] {
 
   [class~="palm-11/12"] {
     width: 91.6666666% !important; } }
-@media screen and (min-width: 720px) and (max-width: 1023px) {
+@media screen and (min-width: 640px) and (max-width: 1023px) {
   /**
    * Whole.
    */
@@ -1181,7 +1303,7 @@ img[height] {
 
   [class~="lap-11/12"] {
     width: 91.6666666% !important; } }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 640px) {
   /**
    * Whole.
    */
@@ -1322,7 +1444,7 @@ img[height] {
 
   [class~="lap-and-up-11/12"] {
     width: 91.6666666% !important; } }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 849px) {
   /**
    * Whole.
    */
@@ -1462,6 +1584,147 @@ img[height] {
     width: 58.3333333% !important; }
 
   [class~="portable-11/12"] {
+    width: 91.6666666% !important; } }
+@media screen and (min-width: 850px) {
+  /**
+   * Whole.
+   */
+  [class~="portable-and-up-1/1"] {
+    width: 100% !important; }
+
+  /**
+   * Halves.
+   */
+  [class~="portable-and-up-1/2"],
+  [class~="portable-and-up-2/4"],
+  [class~="portable-and-up-3/6"],
+  [class~="portable-and-up-4/8"],
+  [class~="portable-and-up-5/10"],
+  [class~="portable-and-up-6/12"] {
+    width: 50% !important; }
+
+  /**
+   * Thirds.
+   */
+  [class~="portable-and-up-1/3"],
+  [class~="portable-and-up-2/6"],
+  [class~="portable-and-up-3/9"],
+  [class~="portable-and-up-4/12"] {
+    width: 33.3333333% !important; }
+
+  [class~="portable-and-up-2/3"],
+  [class~="portable-and-up-4/6"],
+  [class~="portable-and-up-6/9"],
+  [class~="portable-and-up-8/12"] {
+    width: 66.6666666% !important; }
+
+  /**
+   * Quarters.
+   */
+  [class~="portable-and-up-1/4"],
+  [class~="portable-and-up-2/8"],
+  [class~="portable-and-up-3/12"] {
+    width: 25% !important; }
+
+  [class~="portable-and-up-3/4"],
+  [class~="portable-and-up-6/8"],
+  [class~="portable-and-up-9/12"] {
+    width: 75% !important; }
+
+  /**
+   * Fifths.
+   */
+  [class~="portable-and-up-1/5"],
+  [class~="portable-and-up-2/10"] {
+    width: 20% !important; }
+
+  [class~="portable-and-up-2/5"],
+  [class~="portable-and-up-4/10"] {
+    width: 40% !important; }
+
+  [class~="portable-and-up-3/5"],
+  [class~="portable-and-up-6/10"] {
+    width: 60% !important; }
+
+  [class~="portable-and-up-4/5"],
+  [class~="portable-and-up-8/10"] {
+    width: 80% !important; }
+
+  /**
+   * Sixths.
+   */
+  [class~="portable-and-up-1/6"],
+  [class~="portable-and-up-2/12"] {
+    width: 16.6666666% !important; }
+
+  [class~="portable-and-up-5/6"],
+  [class~="portable-and-up-10/12"] {
+    width: 83.3333333% !important; }
+
+  /**
+   * Eighths.
+   */
+  [class~="portable-and-up-1/8"] {
+    width: 12.5% !important; }
+
+  [class~="portable-and-up-3/8"] {
+    width: 37.5% !important; }
+
+  [class~="portable-and-up-5/8"] {
+    width: 62.5% !important; }
+
+  [class~="portable-and-up-7/8"] {
+    width: 87.5% !important; }
+
+  /**
+   * Ninths.
+   */
+  [class~="portable-and-up-1/9"] {
+    width: 11.1111111% !important; }
+
+  [class~="portable-and-up-2/9"] {
+    width: 22.2222222% !important; }
+
+  [class~="portable-and-up-4/9"] {
+    width: 44.4444444% !important; }
+
+  [class~="portable-and-up-5/9"] {
+    width: 55.5555555% !important; }
+
+  [class~="portable-and-up-7/9"] {
+    width: 77.7777777% !important; }
+
+  [class~="portable-and-up-8/9"] {
+    width: 88.8888888% !important; }
+
+  /**
+   * Tenths.
+   */
+  [class~="portable-and-up-1/10"] {
+    width: 10% !important; }
+
+  [class~="portable-and-up-3/10"] {
+    width: 30% !important; }
+
+  [class~="portable-and-up-7/10"] {
+    width: 70% !important; }
+
+  [class~="portable-and-up-9/10"] {
+    width: 90% !important; }
+
+  /**
+   * Twelfths.
+   */
+  [class~="portable-and-up-1/12"] {
+    width: 8.3333333% !important; }
+
+  [class~="portable-and-up-5/12"] {
+    width: 41.6666666% !important; }
+
+  [class~="portable-and-up-7/12"] {
+    width: 58.3333333% !important; }
+
+  [class~="portable-and-up-11/12"] {
     width: 91.6666666% !important; } }
 @media screen and (min-width: 1024px) {
   /**
@@ -1613,6 +1876,218 @@ img[height] {
  *
  * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
+/**
+ * Margin helper classes.
+ *
+ * Add margins.
+ */
+.m {
+  margin: 24px !important; }
+
+.mt {
+  margin-top: 24px !important; }
+
+.mr {
+  margin-right: 24px !important; }
+
+.mb {
+  margin-bottom: 24px !important; }
+
+.ml {
+  margin-left: 24px !important; }
+
+.mh {
+  margin-right: 24px !important;
+  margin-left: 24px !important; }
+
+.mv {
+  margin-top: 24px !important;
+  margin-bottom: 24px !important; }
+
+/**
+ * Add tiny margins.
+ */
+.m-- {
+  margin: 6px !important; }
+
+.mt-- {
+  margin-top: 6px !important; }
+
+.mr-- {
+  margin-right: 6px !important; }
+
+.mb-- {
+  margin-bottom: 6px !important; }
+
+.ml-- {
+  margin-left: 6px !important; }
+
+.mh-- {
+  margin-right: 6px !important;
+  margin-left: 6px !important; }
+
+.mv-- {
+  margin-top: 6px !important;
+  margin-bottom: 6px !important; }
+
+/**
+ * Add small margins.
+ */
+.m- {
+  margin: 12px !important; }
+
+.mt- {
+  margin-top: 12px !important; }
+
+.mr- {
+  margin-right: 12px !important; }
+
+.mb- {
+  margin-bottom: 12px !important; }
+
+.ml- {
+  margin-left: 12px !important; }
+
+.mh- {
+  margin-right: 12px !important;
+  margin-left: 12px !important; }
+
+.mv- {
+  margin-top: 12px !important;
+  margin-bottom: 12px !important; }
+
+/**
+ * Add large margins.
+ */
+.m\+ {
+  margin: 48px !important; }
+
+.mt\+ {
+  margin-top: 48px !important; }
+
+.mr\+ {
+  margin-right: 48px !important; }
+
+.mb\+ {
+  margin-bottom: 48px !important; }
+
+.ml\+ {
+  margin-left: 48px !important; }
+
+.mh\+ {
+  margin-right: 48px !important;
+  margin-left: 48px !important; }
+
+.mv\+ {
+  margin-top: 48px !important;
+  margin-bottom: 48px !important; }
+
+/**
+ * Remove margins.
+ */
+.m0 {
+  margin: 0 !important; }
+
+.mt0 {
+  margin-top: 0 !important; }
+
+.mr0 {
+  margin-right: 0 !important; }
+
+.mb0 {
+  margin-bottom: 0 !important; }
+
+.ml0 {
+  margin-left: 0 !important; }
+
+.mh0 {
+  margin-right: 0 !important;
+  margin-left: 0 !important; }
+
+.mv0 {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+
+/**
+ * Padding helper classes.
+ *
+ * Add paddings.
+ */
+.p {
+  padding: 24px !important; }
+
+.pt {
+  padding-top: 24px !important; }
+
+.pr {
+  padding-right: 24px !important; }
+
+.pb {
+  padding-bottom: 24px !important; }
+
+.pl {
+  padding-left: 24px !important; }
+
+.ph {
+  padding-right: 24px !important;
+  padding-left: 24px !important; }
+
+.pv {
+  padding-top: 24px !important;
+  padding-bottom: 24px !important; }
+
+/**
+ * Add small paddings.
+ */
+.p- {
+  padding: 12px !important; }
+
+.pt- {
+  padding-top: 12px !important; }
+
+.pr- {
+  padding-right: 12px !important; }
+
+.pb- {
+  padding-bottom: 12px !important; }
+
+.pl- {
+  padding-left: 12px !important; }
+
+.ph- {
+  padding-right: 12px !important;
+  padding-left: 12px !important; }
+
+.pv- {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important; }
+
+/**
+ * Remove paddings.
+ */
+.p0 {
+  padding: 0 !important; }
+
+.pt0 {
+  padding-top: 0 !important; }
+
+.pr0 {
+  padding-right: 0 !important; }
+
+.pb0 {
+  padding-bottom: 0 !important; }
+
+.pl0 {
+  padding-left: 0 !important; }
+
+.ph0 {
+  padding-right: 0 !important;
+  padding-left: 0 !important; }
+
+.pv0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important; }
+
 /*------------------------------------*\
     #SPACING-RESPONSIVE
 \*------------------------------------*/
@@ -1622,6 +2097,391 @@ img[height] {
  *
  * `.(m|p)(t|r|b|l|h|v)(-|+|0) {}` = margin/padding top/right/bottom/left/horizontal/vertical less/more/none
  */
+/**
+ * Remove margins.
+ */
+@media screen and (max-width: 639px) {
+  .palm-m0 {
+    margin: 0 !important; }
+
+  .palm-mt0 {
+    margin-top: 0 !important; }
+
+  .palm-mr0 {
+    margin-right: 0 !important; }
+
+  .palm-mb0 {
+    margin-bottom: 0 !important; }
+
+  .palm-ml0 {
+    margin-left: 0 !important; }
+
+  .palm-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .palm-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .lap-m0 {
+    margin: 0 !important; }
+
+  .lap-mt0 {
+    margin-top: 0 !important; }
+
+  .lap-mr0 {
+    margin-right: 0 !important; }
+
+  .lap-mb0 {
+    margin-bottom: 0 !important; }
+
+  .lap-ml0 {
+    margin-left: 0 !important; }
+
+  .lap-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .lap-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+@media screen and (min-width: 640px) {
+  .lap-and-up-m0 {
+    margin: 0 !important; }
+
+  .lap-and-up-mt0 {
+    margin-top: 0 !important; }
+
+  .lap-and-up-mr0 {
+    margin-right: 0 !important; }
+
+  .lap-and-up-mb0 {
+    margin-bottom: 0 !important; }
+
+  .lap-and-up-ml0 {
+    margin-left: 0 !important; }
+
+  .lap-and-up-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .lap-and-up-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+@media screen and (max-width: 849px) {
+  .portable-m0 {
+    margin: 0 !important; }
+
+  .portable-mt0 {
+    margin-top: 0 !important; }
+
+  .portable-mr0 {
+    margin-right: 0 !important; }
+
+  .portable-mb0 {
+    margin-bottom: 0 !important; }
+
+  .portable-ml0 {
+    margin-left: 0 !important; }
+
+  .portable-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .portable-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+@media screen and (min-width: 850px) {
+  .portable-and-up-m0 {
+    margin: 0 !important; }
+
+  .portable-and-up-mt0 {
+    margin-top: 0 !important; }
+
+  .portable-and-up-mr0 {
+    margin-right: 0 !important; }
+
+  .portable-and-up-mb0 {
+    margin-bottom: 0 !important; }
+
+  .portable-and-up-ml0 {
+    margin-left: 0 !important; }
+
+  .portable-and-up-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .portable-and-up-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+@media screen and (min-width: 1024px) {
+  .desk-m0 {
+    margin: 0 !important; }
+
+  .desk-mt0 {
+    margin-top: 0 !important; }
+
+  .desk-mr0 {
+    margin-right: 0 !important; }
+
+  .desk-mb0 {
+    margin-bottom: 0 !important; }
+
+  .desk-ml0 {
+    margin-left: 0 !important; }
+
+  .desk-mh0 {
+    margin-right: 0 !important;
+    margin-left: 0 !important; }
+
+  .desk-mv0 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important; } }
+/**
+ * Add small paddings.
+ */
+@media screen and (max-width: 639px) {
+  .palm-p- {
+    padding: 12px !important; }
+
+  .palm-pt- {
+    padding-top: 12px !important; }
+
+  .palm-pr- {
+    padding-right: 12px !important; }
+
+  .palm-pb- {
+    padding-bottom: 12px !important; }
+
+  .palm-pl- {
+    padding-left: 12px !important; }
+
+  .palm-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .palm-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .lap-p- {
+    padding: 12px !important; }
+
+  .lap-pt- {
+    padding-top: 12px !important; }
+
+  .lap-pr- {
+    padding-right: 12px !important; }
+
+  .lap-pb- {
+    padding-bottom: 12px !important; }
+
+  .lap-pl- {
+    padding-left: 12px !important; }
+
+  .lap-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .lap-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+@media screen and (min-width: 640px) {
+  .lap-and-up-p- {
+    padding: 12px !important; }
+
+  .lap-and-up-pt- {
+    padding-top: 12px !important; }
+
+  .lap-and-up-pr- {
+    padding-right: 12px !important; }
+
+  .lap-and-up-pb- {
+    padding-bottom: 12px !important; }
+
+  .lap-and-up-pl- {
+    padding-left: 12px !important; }
+
+  .lap-and-up-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .lap-and-up-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+@media screen and (max-width: 849px) {
+  .portable-p- {
+    padding: 12px !important; }
+
+  .portable-pt- {
+    padding-top: 12px !important; }
+
+  .portable-pr- {
+    padding-right: 12px !important; }
+
+  .portable-pb- {
+    padding-bottom: 12px !important; }
+
+  .portable-pl- {
+    padding-left: 12px !important; }
+
+  .portable-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .portable-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+@media screen and (min-width: 850px) {
+  .portable-and-up-p- {
+    padding: 12px !important; }
+
+  .portable-and-up-pt- {
+    padding-top: 12px !important; }
+
+  .portable-and-up-pr- {
+    padding-right: 12px !important; }
+
+  .portable-and-up-pb- {
+    padding-bottom: 12px !important; }
+
+  .portable-and-up-pl- {
+    padding-left: 12px !important; }
+
+  .portable-and-up-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .portable-and-up-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+@media screen and (min-width: 1024px) {
+  .desk-p- {
+    padding: 12px !important; }
+
+  .desk-pt- {
+    padding-top: 12px !important; }
+
+  .desk-pr- {
+    padding-right: 12px !important; }
+
+  .desk-pb- {
+    padding-bottom: 12px !important; }
+
+  .desk-pl- {
+    padding-left: 12px !important; }
+
+  .desk-ph- {
+    padding-right: 12px !important;
+    padding-left: 12px !important; }
+
+  .desk-pv- {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important; } }
+/*------------------------------------*\
+    #HIDE-RESPONSIVE
+\*------------------------------------*/
+/**
+ * Responsive hide classes based on your responsive settings.
+ */
+@media screen and (max-width: 639px) {
+  .palm-hide {
+    display: none !important; } }
+@media screen and (min-width: 640px) and (max-width: 1023px) {
+  .lap-hide {
+    display: none !important; } }
+@media screen and (min-width: 640px) {
+  .lap-and-up-hide {
+    display: none !important; } }
+@media screen and (max-width: 849px) {
+  .portable-hide {
+    display: none !important; } }
+@media screen and (min-width: 850px) {
+  .portable-and-up-hide {
+    display: none !important; } }
+@media screen and (min-width: 1024px) {
+  .desk-hide {
+    display: none !important; } }
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .retina-hide {
+    display: none !important; } }
+/**
+ * Helper-class for removing item visually, but not for screenreaders
+ */
+.accessibility {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important; }
+
+/**
+ * Floating left. Remember to add clearfix class on parent item: .clearfix
+ */
+.fl {
+  float: left; }
+
+/**
+ * Floating right. Remember to add clearfix class on parent item: .clearfix
+ */
+.fr {
+  float: right; }
+
+/**
+ * If we don't want to wrap the text over multiple lines.
+ */
+.no-wrap {
+  white-space: nowrap; }
+
+/**
+ * Text align helper classes.
+ */
+.tr {
+  text-align: right; }
+
+.tc {
+  text-align: center; }
+
+.tl {
+  text-align: left; }
+
+.ma {
+  margin: auto !important; }
+
+/**
+ * For removing content..
+ */
+.hide {
+  display: none; }
+
+.visible {
+  display: inherit !important; }
+
+/**
+ * For gray text. WCAG on white background. Only on background over 18px size.
+ */
+.color-gray,
+.color-grey {
+  color: #767676; }
+
+/**
+ * Some places we want a bit smaller text:
+ */
+.font--small {
+  font-size: 14px; }
+  .font--small p {
+    margin-bottom: 6px; }
+
+/**
+ * For hiding tabpanels with javascript:
+ */
+[role="tabpanel"][aria-hidden="true"] {
+  display: none; }
+
 /*------------------------------------*\
     #SHAME
     This is where we put quick sketches, hacks etc
